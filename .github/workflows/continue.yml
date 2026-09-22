@@ -1,4 +1,4 @@
-name: Website Deployment
+name: test error handling
 on:
   push:
     branches:
