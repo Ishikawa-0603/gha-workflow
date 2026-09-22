@@ -36,6 +36,7 @@ jobs:
         id: run-tests
         run: npm run test
       - name: Upload test report
+        # failuerは常に失敗したらtrue になり && steps.run-tests.outcome == 'failure' それに該当するジョブがエラーになった場合に実行されるように操作している状況
         if: failure() && steps.run-tests.outcome == 'failure'
         uses: actions/upload-artifact@v4
         with:
@@ -75,3 +76,11 @@ jobs:
         run: ls
       - name: Deploy
         run: echo "Deploying..."
+  report:
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output infomation
+        run: |
+          echo "Something whnt worng"
+          echo "${{ github }}"
