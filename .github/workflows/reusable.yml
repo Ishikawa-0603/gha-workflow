@@ -10,7 +10,7 @@ on:
     outputs:
       result: 
         description: the result of the deployment outcome
-        value: ${{ jobs.deploy.output.outcome}}
+        value: ${{ jobs.deploy.outputs.outcome}}
     # secrets:
     #   some-secret:
     #     required: 
@@ -19,7 +19,7 @@ on:
 jobs:
   deploy:
     outputs:
-      outcome: ${{ steps.set-result.outpus.step-result }}
+      outcome: ${{ steps.set-result.outpus.job-result }}
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
@@ -32,4 +32,4 @@ jobs:
         run: echo "deploy and upload"
       - name: Set result output
         id: set-result
-        run: echo "::set-output name=step-result::success"
+        run: echo "job-result=Success" >> GITHUB_OUTPUT
