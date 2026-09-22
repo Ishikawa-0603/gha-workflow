@@ -22,14 +22,14 @@ jobs:
       outcome: ${{ steps.set-result.outpus.job-result }}
     runs-on: ubuntu-latest
     steps:
-      - name: Get Code
-        uses: actions/download-artifact@v4
-        with: 
-          name: ${{ inputs.artifact-name }}
+      # - name: Get Code
+      #   uses: actions/download-artifact@v4
+      #   with: 
+      #     name: ${{ inputs.artifact-name }}
       - name: List files
         run: ls
       - name: Output information
         run: echo "deploy and upload"
       - name: Set result output
         id: set-result
-        run: echo "job-result=Success" >> GITHUB_OUTPUT
+        run: echo "job-result=Success" >> $GITHUB_OUTPUT
