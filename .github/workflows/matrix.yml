@@ -9,7 +9,7 @@ jobs:
         operating-system: [ubuntu-latest, windows-latest]
         include:
           - node-version: 18
-            operateing-system: ubuntu-latest
+            operating ubuntu-latest
           - node-version: 18
             operating-system: windows-latest
         exclude:
